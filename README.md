@@ -1,3 +1,3 @@
 # Application-de-gestion-de-stock
 projet C 
-##step1*
+##step1
