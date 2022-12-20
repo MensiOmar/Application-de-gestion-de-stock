@@ -209,3 +209,11 @@ void print_action(action act){
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 }
+int main()
+{
+    action l,act;
+    l=saisie_action(act);
+    print_action(l);
+
+    return 0;
+}

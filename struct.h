@@ -47,5 +47,8 @@ date saisie_date(date date);
 //void saisie_depot(depot depot);
 produit saisie_produit(produit produit);
 action saisie_action(action act);
-
+void print_date(date date);
+void print_produit( produit prod);
+void print_heure(heure heure);
+void print_action(action act);
 #endif // STRUCT_H_INCLUDED
