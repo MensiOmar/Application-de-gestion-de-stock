@@ -1,5 +1,15 @@
 #include <stdio.h>
 #include "struct.h"
+// Initialisation de la liste vide
+void initialiser_liste_produit (noeudprod *L)
+{
+ L = NULL ;
+}
+void initialiser_liste_action (noeudact *L)
+{
+ L = NULL ;
+}
+//fonctions de saisie
 heure saisie_heure(heure heure){
     int hh,mm;
     do{
@@ -35,39 +45,11 @@ date saisie_date(date date)
     return date;
 }
 
-/*void saisie_depot(depot depot)
-{
-        printf("nom du depot: ");
-        scanf("%s",depot.nom);
-        printf("adresse du depot: ");
-        scanf("%s",depot.adresse);
-}*/
-
 produit saisie_produit(produit produit)
 {
         int choix;
         printf("nom du produit: ");
         scanf("%s",produit.nom);
-
-
-        /*printf("nom du depot de stockage");
-        scanf("%s",&produit.depot);
-        if(check_in(T,produit.depot)==-1){
-            printf("ce depot n'est pas enregistre\n");
-            printf("1-ajouter un nouveau depot\n");
-            printf("2-resseyer\n");
-            do{
-            printf("choix: \n");
-            scanf("%d",&choix);
-        }while(choix!=1||choix!=2);
-        if(choix==1){
-            saisie_depot(depot);
-            ajout_depot(depot);
-        }
-        else if(choix==1)
-
-
-        }*/
 
     do{
         printf("prix d'achat: ");
@@ -158,6 +140,7 @@ action saisie_action(action act)
 
     return act;
 }
+//procedures d'affichage 
 void print_produit( produit prod){
     printf("***********************Nom: %s**********************\n",prod.nom);
     printf("***************************ID: %d*************************\n",prod.id);
