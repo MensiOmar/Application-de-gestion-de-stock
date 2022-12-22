@@ -1,5 +1,15 @@
 #include <stdio.h>
 #include "struct.h"
+// Initialisation de la liste vide
+void initialiser_liste_produit (noeudprod *L)
+{
+ L = NULL ;
+}
+void initialiser_liste_action (noeudact *L)
+{
+ L = NULL ;
+}
+//fonctions de saisie
 heure saisie_heure(heure heure){
     int hh,mm;
     do{
@@ -35,39 +45,11 @@ date saisie_date(date date)
     return date;
 }
 
-/*void saisie_depot(depot depot)
-{
-        printf("nom du depot: ");
-        scanf("%s",depot.nom);
-        printf("adresse du depot: ");
-        scanf("%s",depot.adresse);
-}*/
-
 produit saisie_produit(produit produit)
 {
         int choix;
         printf("nom du produit: ");
         scanf("%s",produit.nom);
-
-
-        /*printf("nom du depot de stockage");
-        scanf("%s",&produit.depot);
-        if(check_in(T,produit.depot)==-1){
-            printf("ce depot n'est pas enregistre\n");
-            printf("1-ajouter un nouveau depot\n");
-            printf("2-resseyer\n");
-            do{
-            printf("choix: \n");
-            scanf("%d",&choix);
-        }while(choix!=1||choix!=2);
-        if(choix==1){
-            saisie_depot(depot);
-            ajout_depot(depot);
-        }
-        else if(choix==1)
-
-
-        }*/
 
     do{
         printf("prix d'achat: ");
@@ -80,7 +62,7 @@ produit saisie_produit(produit produit)
     }while(produit.pv<0);
 
     do{
-        printf("quantit�: ");
+        printf("quantite: ");
         scanf("%d",&produit.quant);
     }while(produit.quant<0);
 
@@ -89,7 +71,7 @@ produit saisie_produit(produit produit)
         scanf("%d",&produit.id);
     }while(produit.id<0);
 
-    printf("fragilit�:\t ");
+    printf("fragilite:\t ");
     printf("1:fragile\t");
     printf("2:non fragile\n");
 
@@ -100,9 +82,9 @@ produit saisie_produit(produit produit)
     }while(produit.fragilite!=1&&produit.fragilite!=2);
 
     printf("importance:\t ");
-    printf("A: tres important\t");
-    printf("B: importance moyenne\t");
-    printf("C: non important\n");
+    printf("1: tres important\t");
+    printf("2: importance moyenne\t");
+    printf("3: non important\n");
 
     do{
 
@@ -130,10 +112,10 @@ action saisie_action(action act)
     printf("nom du produit: ");
     scanf("%s",act.prod);
 
-    do{
+    /*do{
         printf("produit non existant,resseyer: ");
         gets(act.prod);
-    }while(check_nom_prod(liste_des_prods,act.prod)==-1);
+    }while(check_nom_prod(liste_des_prods,act.prod)==-1);*/
 
     printf("date d'action: ");
     act.date_act=saisie_date(act.date_act);
@@ -147,14 +129,66 @@ action saisie_action(action act)
         scanf("%d",&act.quant);
     }
 
-    else if(act.type==2)
+    /*else if(act.type==2)
     {
         do{
             printf("quantite non resonnable:");
             printf("quantite: ");
             scanf("%d",&act.quant);
         }while(recherche_prod(liste_des_produits,act.prod).quant<act.quant);
-    }
+    }*/
 
     return act;
+}
+//procedures d'affichage 
+void print_produit( produit prod){
+    printf("***********************Nom: %s**********************\n",prod.nom);
+    printf("***************************ID: %d*************************\n",prod.id);
+    if(prod.importance==1){
+        printf("**************Importance: %s**************\n","TRES IMPORTANT");
+        }
+    else if(prod.importance==2){
+       printf("**************Importance: %s**************\n","Importance moyenne"); 
+    }
+    else{
+        printf("**************Importance: %s**************\n","Importance moyenne");
+    }
+    if(prod.fragilite==1){
+        printf("**************!!!!%s!!!!**************\n","FRAGILE");
+        }
+    else if(prod.fragilite==2){
+       printf("**************~~~~%s~~~~**************\n","non fragile"); 
+    }
+    printf("\t\t Quanite: %d\n",prod.quant);
+    printf("\t\t Prix de vente: %d\n",prod.pv);
+    printf("\t\t Prix d'achat: %d\n",prod.pa);
+    printf("\t\t Date d'expiration: ");
+    print_date(prod.delai);
+    printf("\n");
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+}
+void print_date(date date){
+printf("%d/%d/%d",date.jj,date.mm,date.aa);
+}
+void print_heure(heure heure){
+printf("%d:%d",heure.hh,heure.mm);
+}
+void print_action(action act){
+   if(act.type==1){
+        printf("**************~~~~%s~~~~**************\n","ENTREE D'UN PRODUIT");
+        }
+    else if (act.type==2){
+       printf("**************~~~~%s~~~~**************\n","SORTIE D'UN PRODUIT"); 
+    } 
+    printf("\t\t Nom du produit: %s\n",act.prod);
+    printf("\t\t Quanite: %d\n",act.quant);
+    printf("\t\t Date d'action: ");
+    print_date(act.date_act);
+    printf("\n");
+    printf("\t\t Heure d'action: ");
+    print_date(act.date_act);
+    printf("\n");
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 }
