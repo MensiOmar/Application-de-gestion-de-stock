@@ -42,7 +42,3 @@ fscanf(f, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfra
                      fclose(f);
 }
 
-int main(void){
-  import_produit_fichier();   
-return 0;
-}
