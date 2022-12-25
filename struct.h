@@ -48,8 +48,6 @@ struct noeud * suiv;
 // Initialisation de la liste vide
 void initialiser_liste_produit (noeudprod * L);
 void initialiser_liste_action (noeudact * L);
-
-
 heure saisie_heure(heure heure);
 date saisie_date(date date);
 //void saisie_depot(depot depot);
