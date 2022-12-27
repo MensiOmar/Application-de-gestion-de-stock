@@ -48,4 +48,7 @@ void print_heure(heure heure);
 void print_action(action act);
 void ModifierProduit();
 void ajout_produit();
+int nombre_de_produit();
+void supprimerproduit();
+int rech(int idrech);
 #endif // STRUCT_H_INCLUDED

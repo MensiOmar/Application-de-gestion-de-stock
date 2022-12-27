@@ -1,14 +1,5 @@
 #include <stdio.h>
 #include "struct.h"
-// Initialisation de la liste vide
-void initialiser_liste_produit (noeudprod *L)
-{
- L = NULL ;
-}
-void initialiser_liste_action (noeudact *L)
-{
- L = NULL ;
-}
 //fonctions de saisie
 heure saisie_heure(heure heure){
     int hh,mm;
