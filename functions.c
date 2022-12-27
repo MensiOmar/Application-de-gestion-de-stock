@@ -33,7 +33,7 @@ date saisie_date(date date)
     }while(date.aa>2100||date.aa<1900);
 
     do{
-        printf("moi: ");
+        printf("mois: ");
         scanf("%d",&date.mm);
     }while(date.mm>12||date.mm<1);
 
@@ -49,7 +49,7 @@ produit saisie_produit(produit produit)
 {
         int choix;
         printf("nom du produit: ");
-        scanf("%s",produit.nom);
+        scanf("%s",&produit.nom);
 
     do{
         printf("prix d'achat: ");
