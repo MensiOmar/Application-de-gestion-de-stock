@@ -58,17 +58,7 @@ case 3 :
  			else{break;}	
 		}    
 case 4 :
-		printf("entrer le numero de serie de produit ");
-		scanf("%d",n);
-		if(recherche_produit(noeudprod,n))
-   		{
-			print_produit();
-    	}
-    	else{
-			printf("le produit que vous souhaitez de le modifier n'existe pas ou le numero de serie est incorrect\n");
-			printf("ressayer de nouveau\n");
-			}
-         break;
+		ModifierProduit();
 case 5 :
 		printf("entrer le numero de serie de produit ");
 		scanf("%d",n);
