@@ -2,34 +2,14 @@
 #include <stdio.h>
 #include"struct.h"
 
-Liste ajout_queue(produit produit, Liste L){
-    Liste p,Q;
-    p = malloc(sizeof(produit));
-    p->suivant=NULL;
-    p->prod=produit;
-    Q=L;
-    while(Q->suivant){
-        Q=Q->suivant;
-    }
-    Q->suivant = p;
-    return L;
-}
-Liste ajout_tete(produit produit, Liste L){
-
-    Liste p;
-    p = malloc(sizeof(produit));
-    p->suivant=L;
-    p->prod=produit;
-    L=p;
-    return L;
-}
 
 
-Liste ajout_produit_Liste( Liste L){
+
+void ajout_produit( ){
 
     produit pt;
     int choix;
-    L=NULL;
+
     
 
             FILE *f;
@@ -45,11 +25,10 @@ Liste ajout_produit_Liste( Liste L){
 
        // fprintf(f,"\n");
         fclose(f);
-        L=ajout_tete(pt,L);
+       
 
 
-   
-    return L;
+
 }
 
 

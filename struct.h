@@ -35,19 +35,8 @@ typedef struct produit{
 
 
 }produit;
-//liste chainé du produit
-typedef struct noeud{
-produit produit ;
-struct noeud * suiv;
-}noeudprod;
-//liste chainé action
-typedef struct noeudact{
-produit produit ;
-struct noeud * suiv;
-}noeudact;
-// Initialisation de la liste vide
-void initialiser_liste_produit (noeudprod * L);
-void initialiser_liste_action (noeudact * L);
+
+
 heure saisie_heure(heure heure);
 date saisie_date(date date);
 //void saisie_depot(depot depot);
@@ -58,4 +47,5 @@ void print_produit( produit prod);
 void print_heure(heure heure);
 void print_action(action act);
 void ModifierProduit();
+void ajout_produit();
 #endif // STRUCT_H_INCLUDED
