@@ -14,7 +14,7 @@ typedef struct heure{
 }heure;
 
 typedef struct action{
-    int type; //1 ou 2//
+    int type; //1:entre ou 2:sortie//
     int quant; //quantite entree ou sortie//
     char prod[100];  //nom du produit//
     date date_act; //date d'action//
