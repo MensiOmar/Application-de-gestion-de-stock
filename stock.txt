@@ -1,0 +1,5 @@
+Nom : cocaa	ID : 3456	prixachat : 12300	prixvente : 14000	quantite : 23	frag : 1	impor : 2	date d'expiration : 1/1/2000
+Nom : marin	ID : 101010	prixachat : 2000	prixvente : 3000	quantite : 23	frag : 1	impor : 1	date d'expiration : 1/1/2000
+Nom : nana	ID : 90909	prixachat : 4000	prixvente : 5000	quantite : 300	frag : 1	impor : 1	date d'expiration : 30/12/2022
+Nom : kakak	ID : 8238	prixachat : 800	prixvente : 900	quantite : 5	frag : 1	impor : 1	date d'expiration : 2/2/2020
+Nom : bass	ID : 2678	prixachat : 200	prixvente : 300	quantite : 100	frag : 1	impor : 1	date d'expiration : 1/12/2000
