@@ -249,10 +249,24 @@ while((c=fgetc(f)) != EOF)
 		nbl++; 
 }
  fclose(f);
-return nbl-1;
+return nbl;
 
 }
+int nombre_action_hist(){
+   //calclul du  nombre de produit
+int c;
+FILE *f;
+      f = fopen("historique.txt", "r");
+int nbl = 0;
+while((c=fgetc(f)) != EOF)
+{
+	if(c=='\n')
+		nbl++;
+}
+ fclose(f);
+return nbl;
 
+}
 int rech(int idrech)
 {   produit p;
     FILE *F;
@@ -424,7 +438,7 @@ d=saisie_date(d);
              printf("Erreur lors de l'ouverture d'un fichier");
                               exit(1);
             }
-  n=nombre_de_produit();
+  n=nombre_action_hist();
   for(int i=0;i<n;i++){
   fscanf(l,"type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",&act.type,&act.quant,&pt.nom,&act.date_act.jj,&act.date_act.mm,&act.date_act.aa,&act.heure_act.hh,&act.heure_act.mm);
       if(d.aa==act.date_act.aa&&d.mm==act.date_act.mm&&d.jj==act.date_act.jj){ printf("type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.type,act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);

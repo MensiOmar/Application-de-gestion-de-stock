@@ -53,4 +53,5 @@ void supprimerproduit();
 int rech(int idrech);
 void recherche_affichage();
 void recherche_historique();
+nombre_action_hist();
 #endif // STRUCT_H_INCLUDED
