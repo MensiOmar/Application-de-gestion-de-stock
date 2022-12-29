@@ -52,4 +52,5 @@ int nombre_de_produit();
 void supprimerproduit();
 int rech(int idrech);
 void recherche_affichage();
+void recherche_historique();
 #endif // STRUCT_H_INCLUDED

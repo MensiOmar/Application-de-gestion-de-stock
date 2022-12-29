@@ -60,7 +60,10 @@ produit saisie_produit(produit produit)
     do{
         printf("id du produit: ");
         scanf("%d",&produit.id);
-    }while(produit.id<0);
+        if(rech(produit.id==1)){
+            printf("ce id existe deja !\n");
+        }
+    }while(produit.id<0||rech(produit.id==1));
 
     printf("fragilite:\t ");
     printf("1:fragile\t");
@@ -246,7 +249,7 @@ while((c=fgetc(f)) != EOF)
 		nbl++; 
 }
  fclose(f);
-return nbl;
+return nbl-1;
 
 }
 
@@ -408,3 +411,24 @@ void ajout_produit( ){
         fclose(f);
         fclose(l);
 }
+void recherche_historique()
+{ action act;
+date d;
+produit pt;
+int n;
+        FILE *l;
+printf("donner la date de recherche dans l'historique :\n");
+d=saisie_date(d);
+  l = fopen("historique.txt", "r");
+  if(l==NULL){
+             printf("Erreur lors de l'ouverture d'un fichier");
+                              exit(1);
+            }
+  n=nombre_de_produit();
+  for(int i=0;i<n;i++){
+  fscanf(l,"type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",&act.type,&act.quant,&pt.nom,&act.date_act.jj,&act.date_act.mm,&act.date_act.aa,&act.heure_act.hh,&act.heure_act.mm);
+      if(d.aa==act.date_act.aa&&d.mm==act.date_act.mm&&d.jj==act.date_act.jj){ printf("type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.type,act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
+      }
+  }
+        fclose(l);
+}  
