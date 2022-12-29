@@ -185,40 +185,54 @@ void print_action(action act){
 }
 //supp
 void supprimerproduit(){
+action act;
 produit p;
-int n;
-char rep ;
+int n ,choix ;
 int idrech;
+FILE *F,*Fich,*l;
 printf("donner l'idendifiant de produit a supprimer:");
 scanf("%d",&idrech);
 if(rech(idrech)==1){
-   // printf("\n Voulez Vous Vraimment Supprimer o/n ?");
-    //scanf("%c",&rep);
-    //fflush(stdin);
-
-        FILE *F,*Fich;
+    printf("\n Voulez Vous Vraimment Supprimer 1:oui/2:non\n ?");
+    printf("choix: ");
+    scanf("%d",&choix);
+    fflush(stdin);
+    if(choix==1){
         F=fopen("stock.txt","r");
         Fich=fopen("tempstock.txt","a");
-         n=nombre_de_produit();
+        n=nombre_de_produit();
+        printf("donner la date de la suppression de ce produit: \n");
+        act.date_act=saisie_date(act.date_act);
+        printf("donner l'heure de la suppression de ce produit: \n");
+        act.heure_act=saisie_heure(act.heure_act);
         for(int j=0;j<n;j++){
            fscanf(F, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", &p.nom, &p.id, &p.pa, &p.pv, &p.quant, &p.fragilite, &p.importance, &p.delai.jj, &p.delai.mm, &p.delai.aa);
+        if(idrech==p.id){
+            l=fopen("historique.txt","a");
+            fprintf(l,"type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",2,p.quant,p.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);   
+            fclose(l);
+        }
         if(idrech!=p.id){
                 fprintf(Fich, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", p.nom, p.id, p.pa, p.pv, p.quant, p.fragilite, p.importance, p.delai.jj, p.delai.mm, p.delai.aa);
-
+          
+}
+}
+    }
+    else{
+        printf("supression annule");
         }
-}fclose(Fich);
+
+}
+else{
+    printf("\n ce produit n'existe pas");
+}
+fclose(Fich);
 fclose(F);
 remove("stock.txt");
 rename("tempstock.txt","stock.txt");
 printf("suppression Effectue avec Succees");
 }
 
-
-
-else{
-    printf("\n ce produit n'existe pas");
-}
-}
 //rech
 int nombre_de_produit(){
    //calclul du  nombre de produit
@@ -249,16 +263,148 @@ if(F==NULL){
              // lire les donnees a partir de fichier
              for(int j=0;j<n;j++){
 fscanf(F, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", &p.nom, &p.id, &p.pa, &p.pv, &p.quant, &p.fragilite, &p.importance, &p.delai.jj, &p.delai.mm, &p.delai.aa);
-
 if(idrech==p.id){
   fclose(F);
   return 1;
 }
-
-            
-
             }
       fclose(F);
       return -1;
 
+}
+void recherche_affichage(){
+      produit p;
+    FILE *F;
+    int n,idrech;
+
+    F=fopen("stock.txt","r");
+    printf("donner l'id du produit a recherche");
+    scanf("%d",&idrech);
+    if(F==NULL){
+             printf("Erreur lors de l'ouverture d'un fichier");
+                              exit(1);
+            }
+            n=nombre_de_produit();
+             // lire les donnees a partir de fichier
+             for(int j=0;j<n;j++){
+fscanf(F, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", &p.nom, &p.id, &p.pa, &p.pv, &p.quant, &p.fragilite, &p.importance, &p.delai.jj, &p.delai.mm, &p.delai.aa);
+
+if(idrech==p.id){
+  fclose(F);
+  printf(F, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", p.nom, p.id,p.pa,p.pv,p.quant,p.fragilite,p.importance,p.delai.jj,p.delai.mm,p.delai.aa);
+
+}
+            }
+      fclose(F);
+      printf("produit non existant");
+
+}
+//modif
+void ModifierProduit(){
+    action act;
+    produit p;
+    FILE *F,*Fich,*l; 
+    int num,i, choix,j;
+    printf("\n Entrer l'id du produit a modifier: ");
+    scanf("%d",&num);
+    fflush(stdin);
+    if(rech(num)==1){
+        printf("!!!!!voulez vous vraiment modifier: 1:oui/2:non\n");
+        printf("choix: ");
+        scanf("%d",&choix);
+        fflush(stdin);
+        if(choix==1){
+            F=fopen("stock.txt","r");
+            Fich=fopen("tempstock.txt","a");
+            
+            do{
+                fscanf(F, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", &p.nom, &p.id, &p.pa, &p.pv, &p.quant, &p.fragilite, &p.importance, &p.delai.jj, &p.delai.mm, &p.delai.aa);
+                
+                if(num==p.id){
+                    j=p.quant;
+                    p.id=num;
+                    printf("Nom du produit: %s\n",p.nom);
+                    printf("ID du produit: %d\n",p.id);
+                    do{
+                        printf("nouveau prix d'achat: ");
+                        scanf("%d",&p.pa);
+                    }while(p.pa<0);
+                    do{
+                        printf("nouveau prix de vente: ");
+                        scanf("%d",&p.pv);
+                    }while(p.pv<0);
+                    do{
+                        printf("nouvelle quantite: ");
+                        scanf("%d",&p.quant);
+                    }while(p.quant<0);
+                    if(p.quant>j){
+                        act.type=1;
+                        act.quant=p.quant-j;
+                    }
+                    if(p.quant<j){
+                        act.type=2;
+                        act.quant=j-p.quant;
+                    }
+                    printf("nouvelle importance:\t ");
+                    printf("1: tres important\t");
+                    printf("2: importance moyenne\t");
+                    printf("3: non important\n");
+
+                    do{
+
+                    printf("choix: ");
+                    scanf("%d",&p.importance);
+                    }while(p.importance!=1&&p.importance!=2&&p.importance!=3);
+
+                    printf("nouvelle date d'expiration:\n ");
+                    p.delai=saisie_date(p.delai);
+                    printf("donner la date de la modification de ce produit: \n");
+                    act.date_act=saisie_date(act.date_act);
+                    printf("donner l'heure de la modification de ce produit: \n");
+                    act.heure_act=saisie_heure(act.heure_act);
+                    printf("\n le produit a ete modifie \n");
+                }
+                fprintf(Fich,"Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", p.nom, p.id,p.pa,p.pv,p.quant,p.fragilite,p.importance,p.delai.jj,p.delai.mm,p.delai.aa);
+            }while(!feof(F));
+            l=fopen("historique.txt","a");
+            fprintf(l,"type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.type,act.quant,p.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
+            fclose(l);
+            fclose(F);
+            fclose(Fich);
+            remove("stock.txt");
+            rename("tempstock.txt","stock.txt");
+
+        }
+        else{printf("\n modification annule \n");}
+    }
+    else{printf("\n id n'exsiste pas \n");}
+}
+//ajout
+void ajout_produit( ){
+    produit pt;
+    int choix;
+    action act;
+        FILE *f,*l;
+    produit p;
+    f = fopen("stock.txt", "a+");
+    l = fopen("historique.txt", "a+");
+     if(f==NULL){
+         printf("Erreur lors de l'ouverture d'un fichier");
+                exit(1);
+                     }
+        printf("\nDonner un produit :\n ");
+        pt=saisie_produit(pt);
+        fprintf(f, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", pt.nom, pt.id,pt.pa,pt.pv,pt.quant,pt.fragilite,pt.importance,pt.delai.jj,pt.delai.mm,pt.delai.aa);
+        act.type=1;
+        act.quant=pt.quant;
+        
+        printf("donner la date de l'ajout de ce produit: \n");
+        act.date_act=saisie_date(act.date_act);
+        printf("donner l'heure de l'ajout de ce produit: \n");
+        act.heure_act=saisie_heure(act.heure_act);
+
+        fprintf(l,"type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.type,act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
+       
+        fclose(f);
+        fclose(l);
 }

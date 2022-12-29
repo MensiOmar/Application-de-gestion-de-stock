@@ -3,3 +3,4 @@ Nom : marin	ID : 101010	prixachat : 2000	prixvente : 3000	quantite : 23	frag : 1
 Nom : nana	ID : 90909	prixachat : 4000	prixvente : 5000	quantite : 300	frag : 1	impor : 1	date d'expiration : 30/12/2022
 Nom : kakak	ID : 8238	prixachat : 800	prixvente : 900	quantite : 5	frag : 1	impor : 1	date d'expiration : 2/2/2020
 Nom : bass	ID : 2678	prixachat : 200	prixvente : 300	quantite : 100	frag : 1	impor : 1	date d'expiration : 1/12/2000
+Nom : kaka	ID : 12	prixachat : 300	prixvente : 600	quantite : 30	frag : 1	impor : 3	date d'expiration : 3/2/2023

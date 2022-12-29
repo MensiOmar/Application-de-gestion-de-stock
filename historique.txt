@@ -7,3 +7,4 @@ type: 2	quantite: 20 nom du produit: kharya	 date d'action: 28/12/2022	 heure d'
 type: 1	quantite: 100 nom du produit: bass	 date d'action: 1/12/2010	 heure d'action: 22:10
 type: 2	quantite: 5 nom du produit: bass	 date d'action: 23/1/2010	 heure d'action: 10:40
 type: 2	quantite: 200 nom du produit: lilas	 date d'action: 1/2/2022	 heure d'action: 23:10
+type: 1	quantite: 30 nom du produit: kaka	 date d'action: 3/12/2022	 heure d'action: 10:20
