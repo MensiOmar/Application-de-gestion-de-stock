@@ -446,3 +446,28 @@ d=saisie_date(d);
   }
         fclose(l);
 }  
+void recherche_historique_mois()
+{ action act;
+produit pt;
+int n,i,m,a;
+FILE *l;
+printf("saisir l'annee correspondante au mois du recherche:");
+scanf("%d",&a);
+printf("donner le mois  de recherche dans l'historique:");
+scanf("%d",&m);
+
+  l = fopen("historique.txt", "r");
+  if(l==NULL){
+             printf("PAS D'HISTORIQUE____veuillez ajouter des produits");
+                              exit(1);
+            }
+  n=nombre_action_hist();
+  for(int i=0;i<n;i++){
+   fscanf(l,"type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",&act.type,&act.quant,&pt.nom,&act.date_act.jj,&act.date_act.mm,&act.date_act.aa,&act.heure_act.hh,&act.heure_act.mm);
+      if(a == act.date_act.aa && m== act.date_act.mm)
+	  {
+	  	 printf("type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.type,act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
+      }
+  }
+        fclose(l);
+}
