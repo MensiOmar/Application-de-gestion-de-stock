@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "struct.h"
 //fonctions de saisie
 heure saisie_heure(heure heure){
@@ -60,10 +61,10 @@ produit saisie_produit(produit produit)
     do{
         printf("id du produit: ");
         scanf("%d",&produit.id);
-        if(rech(produit.id==1)){
+        if(rech(produit.id)==1){
             printf("ce id existe deja !\n");
         }
-    }while(produit.id<0||rech(produit.id==1));
+    }while(produit.id<0||rech(produit.id)==1);
 
     printf("fragilite:\t ");
     printf("1:fragile\t");
@@ -160,7 +161,7 @@ void print_produit( produit prod){
     print_date(prod.delai);
     printf("\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n");
 }
 void print_date(date date){
 printf("%d/%d/%d",date.jj,date.mm,date.aa);
@@ -169,6 +170,7 @@ void print_heure(heure heure){
 printf("%d:%d",heure.hh,heure.mm);
 }
 void print_action(action act){
+    produit p;
    if(act.type==1){
         printf("**************~~~~%s~~~~**************\n","ENTREE D'UN PRODUIT");
         }
@@ -184,7 +186,7 @@ void print_action(action act){
     print_date(act.date_act);
     printf("\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n");
 }
 //supp
 void supprimerproduit(){
@@ -196,7 +198,7 @@ FILE *F,*Fich,*l;
 printf("donner l'idendifiant de produit a supprimer:");
 scanf("%d",&idrech);
 if(rech(idrech)==1){
-    printf("\n Voulez Vous Vraimment Supprimer 1:oui/2:non\n ?");
+    printf("\n Voulez Vous Vraimment Supprimer 1:oui/2:non?  \n");
     printf("choix: ");
     scanf("%d",&choix);
     fflush(stdin);
@@ -222,18 +224,18 @@ if(rech(idrech)==1){
 }
     }
     else{
-        printf("supression annule");
+        printf("supression annule!!\n\n");
         }
 
 }
 else{
-    printf("\n ce produit n'existe pas");
+    printf("\n ce produit n'existe pas\n\n");
 }
 fclose(Fich);
 fclose(F);
 remove("stock.txt");
 rename("tempstock.txt","stock.txt");
-printf("suppression Effectue avec Succees");
+printf("suppression Effectue avec Succees\n\n");
 }
 
 //rech
@@ -308,13 +310,16 @@ fscanf(F, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfra
 
 if(idrech==p.id){
   fclose(F);
-  printf(F, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", p.nom, p.id,p.pa,p.pv,p.quant,p.fragilite,p.importance,p.delai.jj,p.delai.mm,p.delai.aa);
-
+  //printf(F, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", p.nom, p.id,p.pa,p.pv,p.quant,p.fragilite,p.importance,p.delai.jj,p.delai.mm,p.delai.aa);
+    print_produit(p);
 }
-            }
-      fclose(F);
+      
+      else{
       printf("produit non existant");
+    }
+        }     
 
+    fclose(F);
 }
 //modif
 void ModifierProduit(){
@@ -431,7 +436,7 @@ date d;
 produit pt;
 int n;
         FILE *l;
-printf("donner la date de recherche dans l'historique :\n");
+printf("donner la date de recherche dans l'historique: \n");
 d=saisie_date(d);
   l = fopen("historique.txt", "r");
   if(l==NULL){
@@ -441,7 +446,15 @@ d=saisie_date(d);
   n=nombre_action_hist();
   for(int i=0;i<n;i++){
   fscanf(l,"type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",&act.type,&act.quant,&pt.nom,&act.date_act.jj,&act.date_act.mm,&act.date_act.aa,&act.heure_act.hh,&act.heure_act.mm);
-      if(d.aa==act.date_act.aa&&d.mm==act.date_act.mm&&d.jj==act.date_act.jj){ printf("type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.type,act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
+      if(d.aa==act.date_act.aa&&d.mm==act.date_act.mm&&d.jj==act.date_act.jj){ 
+        if(act.type==1){
+         printf("type: ENTREE DU PRODUIT\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
+        //print_action(act);
+         }
+         if(act.type==2){
+            printf("type: SORTIE DU PRODUIT\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
+
+         }
       }
   }
         fclose(l);
@@ -451,7 +464,7 @@ void recherche_historique_mois()
 produit pt;
 int n,i,m,a;
 FILE *l;
-printf("saisir l'annee correspondante au mois du recherche:");
+printf("saisir l'annee correspondante au mois du recherche: ");
 scanf("%d",&a);
 printf("donner le mois  de recherche dans l'historique:");
 scanf("%d",&m);
@@ -466,8 +479,42 @@ scanf("%d",&m);
    fscanf(l,"type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",&act.type,&act.quant,&pt.nom,&act.date_act.jj,&act.date_act.mm,&act.date_act.aa,&act.heure_act.hh,&act.heure_act.mm);
       if(a == act.date_act.aa && m== act.date_act.mm)
 	  {
-	  	 printf("type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.type,act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
+	  	 if(act.type==1){
+         printf("type: ENTREE DU PRODUIT\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
+        //print_action(act);
+         }
+         if(act.type==2){
+            printf("type: SORTIE DU PRODUIT\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
+
+         }
       }
   }
         fclose(l);
+}
+void affichage(){
+      produit p;
+    FILE *F;
+    int n;
+
+    F=fopen("stock.txt","r");
+    
+    
+    if(F==NULL){
+             printf("Erreur lors de l'ouverture d'un fichier");
+                              exit(1);
+            }
+            n=nombre_de_produit();
+             // lire les donnees a partir de fichier
+             for(int j=0;j<n;j++){
+fscanf(F, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", &p.nom, &p.id, &p.pa, &p.pv, &p.quant, &p.fragilite, &p.importance, &p.delai.jj, &p.delai.mm, &p.delai.aa);
+
+
+  
+  //printf("Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", p.nom, p.id,p.pa,p.pv,p.quant,p.fragilite,p.importance,p.delai.jj,p.delai.mm,p.delai.aa);
+print_produit(p);
+
+            }
+      fclose(F);
+     
+
 }

@@ -55,4 +55,6 @@ void recherche_affichage();
 void recherche_historique();
 int nombre_action_hist();
 void recherche_historique_mois();
+void affichage();
+void affichage();
 #endif // STRUCT_H_INCLUDED

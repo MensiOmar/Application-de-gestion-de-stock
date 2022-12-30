@@ -8,3 +8,7 @@ type: 1	quantite: 100 nom du produit: bass	 date d'action: 1/12/2010	 heure d'ac
 type: 2	quantite: 5 nom du produit: bass	 date d'action: 23/1/2010	 heure d'action: 10:40
 type: 2	quantite: 200 nom du produit: lilas	 date d'action: 1/2/2022	 heure d'action: 23:10
 type: 1	quantite: 30 nom du produit: kaka	 date d'action: 3/12/2022	 heure d'action: 10:20
+type: 1	quantite: 1234 nom du produit: aabb	 date d'action: 1/1/2034	 heure d'action: 4:10
+type: 1	quantite: 300 nom du produit: BBB	 date d'action: 1/1/2022	 heure d'action: 4:9
+type: 1	quantite: 500 nom du produit: kljl	 date d'action: 2/12/2022	 heure d'action: 5:40
+type: 2	quantite: 300 nom du produit: BBB	 date d'action: 12/3/2022	 heure d'action: 12:30
