@@ -3,14 +3,16 @@
 #include "struct.h"
 //fonctions de saisie
 heure saisie_heure(heure heure){
+    char k[100],l[100];
     int hh,mm;
     do{
         printf("heure: ");
-        scanf("%d",&hh);
+        scanf("%s",&k);
+        hh=atoi(k);
     }while(hh>24||hh<0);
     do{
         printf("minutes: ");
-        scanf("%d",&mm);
+        scanf("%s",&l);
     }while(mm>59||mm<0);
     heure.hh=hh;
     heure.mm=mm;
@@ -294,10 +296,10 @@ if(idrech==p.id){
 void recherche_affichage(){
       produit p;
     FILE *F;
-    int n,idrech;
+    int n,idrech,i=-1;
 
     F=fopen("stock.txt","r");
-    printf("donner l'id du produit a recherche");
+    printf("donner l'id du produit a recherche :");
     scanf("%d",&idrech);
     if(F==NULL){
              printf("Erreur lors de l'ouverture d'un fichier");
@@ -312,12 +314,14 @@ if(idrech==p.id){
   fclose(F);
   //printf(F, "Nom : %s\tID : %d\tprixachat : %d\tprixvente : %d\tquantite : %d\tfrag : %d\timpor : %d\tdate d'expiration : %d/%d/%d\n", p.nom, p.id,p.pa,p.pv,p.quant,p.fragilite,p.importance,p.delai.jj,p.delai.mm,p.delai.aa);
     print_produit(p);
+    i=j;
 }
       
-      else{
-      printf("produit non existant");
-    }
-        }     
+      
+        }  
+        if(i==-1){
+      printf("produit non existant\n");
+    }   
 
     fclose(F);
 }
