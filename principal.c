@@ -78,7 +78,7 @@ printf("     \t\t  ********************\n");
 			system("cls");
 			printf(" VOS PRODUITS DISPONIBLES\n\n");
 			affichage();
-			printf("=====VOS PRODUIT SONT AFFICHE\n\n");
+			printf("=====VOS PRODUITS SONT AFFICHES\n\n");
 			printf("=====appuiez sur un boutton pour retourner au menu principal :");
 			scanf("%s");
 			break;

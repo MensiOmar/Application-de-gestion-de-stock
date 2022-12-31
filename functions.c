@@ -401,7 +401,7 @@ void ModifierProduit(){
             rename("tempstock.txt","stock.txt");
 
         }
-        else{printf("\n modification annule \n");}
+        else{printf("\n modification annulee \n");}
     }
     else{printf("\n id n'exsiste pas \n");}
 }
@@ -438,7 +438,8 @@ void recherche_historique()
 { action act;
 date d;
 produit pt;
-int n;
+int n,t;
+t=0;
         FILE *l;
 printf("donner la date de recherche dans l'historique: \n");
 d=saisie_date(d);
@@ -450,7 +451,8 @@ d=saisie_date(d);
   n=nombre_action_hist();
   for(int i=0;i<n;i++){
   fscanf(l,"type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",&act.type,&act.quant,&pt.nom,&act.date_act.jj,&act.date_act.mm,&act.date_act.aa,&act.heure_act.hh,&act.heure_act.mm);
-      if(d.aa==act.date_act.aa&&d.mm==act.date_act.mm&&d.jj==act.date_act.jj){ 
+      if(d.aa==act.date_act.aa&&d.mm==act.date_act.mm&&d.jj==act.date_act.jj){
+        t=1; 
         if(act.type==1){
          printf("type: ENTREE DU PRODUIT\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
         //print_action(act);
@@ -460,14 +462,19 @@ d=saisie_date(d);
 
          }
       }
+      
+  }
+  if(t=0){
+    printf("pas d'action a cette date\n");
   }
         fclose(l);
 }  
 void recherche_historique_mois()
 { action act;
 produit pt;
-int n,i,m,a;
+int n,i,m,a,t;
 FILE *l;
+t=0;
 printf("saisir l'annee correspondante au mois du recherche: ");
 scanf("%d",&a);
 printf("donner le mois  de recherche dans l'historique:");
@@ -482,7 +489,7 @@ scanf("%d",&m);
   for(int i=0;i<n;i++){
    fscanf(l,"type: %d\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",&act.type,&act.quant,&pt.nom,&act.date_act.jj,&act.date_act.mm,&act.date_act.aa,&act.heure_act.hh,&act.heure_act.mm);
       if(a == act.date_act.aa && m== act.date_act.mm)
-	  {
+	  {t=1;
 	  	 if(act.type==1){
          printf("type: ENTREE DU PRODUIT\tquantite: %d nom du produit: %s\t date d'action: %d/%d/%d\t heure d'action: %d:%d\n",act.quant,pt.nom,act.date_act.jj,act.date_act.mm,act.date_act.aa,act.heure_act.hh,act.heure_act.mm);
         //print_action(act);
@@ -492,6 +499,10 @@ scanf("%d",&m);
 
          }
       }
+      
+  }
+  if(t=0){
+    printf("pas d'action a cette date\n");
   }
         fclose(l);
 }
