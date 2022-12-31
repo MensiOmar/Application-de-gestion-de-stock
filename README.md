@@ -1,12 +1,12 @@
 # Application-de-gestion-de-stock
 
-Organisée par:		
-			 -Mensi Omar 
-		         -Belhaj Letaief Moataz Bellah
-		         -Khanfir Meriam 
+## Organisée par:	
+-Mensi Omar
+-Belhaj Letaief Moataz Bellah
+-Khanfir Meriam
             
-°Début du projet : 20-12-2022
-°Fin du projet :30-12-2022
+#### °Début du projet : 20-12-2022		
+#### °Fin du projet :30-12-2022
 
 Plus de 8 réunions sont faites sur DISCORD.
 
