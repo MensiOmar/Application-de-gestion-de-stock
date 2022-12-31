@@ -17,7 +17,9 @@
 						        -Le design
 ### *Stockage de données : 
 -On a vu que l’application nécessite l’utilisation des fichiers pour sauvegarder les données, pour cela on a utilisé les fichiers : 
+
 		-Fichier stock.txt (sauvegarder les produits en stocks)
+		
 		-Fichier historique.txt (sauvegarder l’historique des actions entrées et sorties des produits)
 		
 #### NB : On a utilisé des fonctions telles que RENAME et REMOVE ce qui oblige d’utiliser un compilateur capable de reconnaitre ces fonctions.
