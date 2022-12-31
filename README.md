@@ -16,12 +16,17 @@
 						        -Les fonctions et les procédures
 						        -Le design
 ### *Stockage de données : 
--On a vu que l’application nécessite l’utilisation des fichiers pour sauvegarder les données, pour cela on a utilisé les fichiers : Fichier stock.txt (sauvegarder les produits en stocks)
-		        Fichier historique.txt (sauvegarder l’historique des actions entrées et sorties des produits)
-NB : On a utilisé des fonctions telles que RENAME et REMOVE ce qui oblige d’utiliser un compilateur capable de reconnaitre ces fonctions.
-### *Les structures : sont présentées sur des diagrammes localisés ici.
-### *Les fonctions et les procédures : sont présentées sur des diagrammes localisés ici.
-### *Le design : décoration de l’interface de l’application. 
+-On a vu que l’application nécessite l’utilisation des fichiers pour sauvegarder les données, pour cela on a utilisé les fichiers : 
+		-Fichier stock.txt (sauvegarder les produits en stocks)
+		-Fichier historique.txt (sauvegarder l’historique des actions entrées et sorties des produits)
+		
+#### NB : On a utilisé des fonctions telles que RENAME et REMOVE ce qui oblige d’utiliser un compilateur capable de reconnaitre ces fonctions.
+### *Les structures : 
+-Les structures sont présentées sur des diagrammes localisés ici.
+### *Les fonctions et les procédures : 
+-Les fonctions et les procédures sont présentées sur des diagrammes localisés ici.
+### *Le design :
+-décoration de l’interface de l’application. 
  
  ## Description du projet :
 Stock-Manager permet de voir le stock en cours des produits, et aussi de voir l'historique des entrées et des sorties jour par jour sur le mois, et mois par mois. Il garde ensuite en archive les historiques. 
