@@ -33,11 +33,17 @@
  ## Description du projet :
 Stock-Manager permet de voir le stock en cours des produits, et aussi de voir l'historique des entrées et des sorties jour par jour sur le mois, et mois par mois. Il garde ensuite en archive les historiques. 
 Stock-Manager assure aussi les taches suivantes :
+
 ● Ajouter un produit.
+
 ● Afficher la description d’un produit.
+
 ● Supprimer un produit.
+
 ● Modifier un produit.
+
 ● Recherche d’un produit dans le stock.
+
 
 ## AVIS SUR LE PROJET:
 A l’aide de ce projet, on a bien maitrisé l’utilisation de GITHUB et VISUAL CODE, s’amuser de travailler en équipe, de distribuer les taches entre nous et de passer à la vie professionnelle.
