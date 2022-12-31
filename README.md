@@ -1,6 +1,6 @@
 # Application-de-gestion-de-stock
 projet C 
-Organisée par Mensi Omar 
+Organisée par		 Mensi Omar 
 		         Belhaj Letaief Moataz Bellah
 		         Khanfir Meriam 
              
@@ -10,7 +10,7 @@ Fin du projet :30-12-2022
 Plus de 8 réunions sont faites sur DISCORD.
 
 ## Le projet est décomposé sur 4 parties principales : 
-                    -Stockage de données 
+                    					-Stockage de données 
 						        -Les structures 
 						        -Les fonctions et les procédures
 						        -Le design
