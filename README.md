@@ -48,6 +48,5 @@ Stock-Manager assure aussi les taches suivantes :
 ## AVIS SUR LE PROJET:
 A l’aide de ce projet, on a bien maitrisé l’utilisation de GITHUB et VISUAL CODE, s’amuser de travailler en équipe, de distribuer les taches entre nous et de passer à la vie professionnelle.
 
-
-### 															MERCI BIEN.
+															####MERCI BIEN.
 
